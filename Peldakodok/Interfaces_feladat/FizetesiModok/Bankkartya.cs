@@ -18,5 +18,21 @@ namespace Interfaces_feladat.FizetesiModok
          *      - írja ki, hogy "Sikertelen bankkártyás fizetés"
          *      - adjon vissza 'false'-ot
          */
+        public int Egyenleg { get ; set ; }
+
+        public bool Fizetes(int osszeg)
+        {
+            if (Egyenleg >= osszeg)
+            {
+                Egyenleg -= osszeg;
+                Console.WriteLine("Sikeres bankkártyás fizetés");
+                return true;
+            }
+            else 
+            {
+                Console.WriteLine("Sikertelen bankkártyás fizetés");
+                return false;
+            }
+        }
     }
 }

@@ -22,7 +22,32 @@ namespace Interfaces_feladat
         //ha sikertelen volt: próbálja meg fele ekkora összeggel
             //ha az sikeres: írja ki, hogy leárazásban vásárolt
             //ha nem: írja ki, hogy sajnos megint sikertelen volt a vásárlás
-        public void Fizetes() { }
+        public void Fizetes() 
+        {
+            bool sikeres = FizetesiRendszer.Fizetes(Vegosszeg);
+            if (sikeres == false)
+            {
+                Console.WriteLine("A vásárlás nem sikerült");
+                bool sikeres2 = FizetesiRendszer.Fizetes(Vegosszeg / 2);
+                if (sikeres2 == true)
+                {
+                    Console.WriteLine("Leárazásban vásárolt");
+                }
+            }
+            else 
+            {
+                Console.WriteLine("Sajnos megint sikertelen volt a vásárlás");
+            }
+        }
 
+        internal class Bankkartya : Vasarlas
+        {
+            private int v;
+
+            public Bankkartya(int v)
+            {
+                this.v = v;
+            }
+        }
     }
 }

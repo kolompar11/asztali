@@ -8,6 +8,9 @@ namespace Interfaces_feladat
 {
     internal interface IFizetesiRendszer
     {
+        public int Egyenleg {  get; set; }
+
+        public bool Fizetes(int osszeg);
         //property
         /*
          * - egyenleg

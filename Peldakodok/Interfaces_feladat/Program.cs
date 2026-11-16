@@ -1,10 +1,18 @@
-﻿namespace Interfaces_feladat
+﻿using Interfaces_feladat.FizetesiModok;
+
+namespace Interfaces_feladat
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("hello");
+
+            Bankkartya bankkartya = new Bankkartya();
+            bankkartya.Egyenleg = 1000;
+            Vasarlas bankkartyasfizetes = new Vasarlas(bankkartya);
+            bankkartyasfizetes.Vegosszeg = 2000;
+            bankkartyasfizetes.Fizetes();
 
             //hozz létre egy új vásárlást Bankkártyával
             /*állíts be 1000 kezdeti egyenleget
